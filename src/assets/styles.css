@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.pinkBase {
+    background-color: #f8d0c8;
+}
+
+.lightGreen {
+    background-color: #a7b59e;
+}
+
+.baseGreen {
+    background-color: #799567;
+}
+
+.backgroundGreen {
+    background-color: #5b744b;
+}
+
+.darkGreen {
+    background-color: #35522b;
+}
+
+.headerHover {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.headerHover:hover {
+    transform: scale(1.2);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
