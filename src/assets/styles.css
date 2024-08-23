@@ -22,6 +22,18 @@
     background-color: #35522b;
 }
 
+.purple{
+    background-color: #9D84FE;
+}
+
+.darkBlue {
+    background-color: #050A18;
+}
+
+.darkestBlue {
+    background-color: #030712;
+}
+
 .headerHover {
     font-size: 2.5rem;
     line-height: 2.5rem;
@@ -30,10 +42,10 @@
 }
 
 .headerHover:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
-.fade-enter-active,
+/* .fade-enter-active,
 .fade-leave-active {
     transition: opacity 1s ease;
 }
@@ -41,4 +53,46 @@
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+} */
+
+/* Keyframes for fading and sliding animations */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+/* Transition classes for fade-slide */
+.fade-slide-enter-active {
+    animation: fadeInRight 0.35s forwards ease-in-out;
+}
+
+.fade-slide-leave-active {
+    animation: fadeOutLeft 0.35s forwards ease-in-out;
+}
+
+.headerContainer {
+    min-height: 6rem;
+}
+
+.contentContainer {
+    min-height: calc(100vh - 6rem);
 }

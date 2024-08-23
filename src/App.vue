@@ -2,7 +2,7 @@
   <router-view v-slot="{ Component }">
     <transition name="route" mode="out-in">
       <!-- Shows the component currently selected by v-slot -->
-      <component :is="Component"></component>
+      <component :is="Component" class="darkestBlue"></component>
     </transition>
   </router-view>
 </template>

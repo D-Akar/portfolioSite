@@ -1,87 +1,108 @@
 <template>
-    <div class="min-h-screen w-screen baseGreen flex flex-col">
-        <div class="flex-initial mx-72">
-            <div class="flex pt-16">
-                <a class="flex-1 text-4xl font-bold flex items-center justify-center headerHover" href="/">Home
-                </a>
-                <a class="flex-1 text-4xl font-bold flex items-center justify-center headerHover"
-                    href="/portfolio">Portfolio</a>
-                <a class="flex-1 text-4xl font-bold flex items-center justify-center headerHover"
-                    href="/contact">Contact</a>
-            </div>
-            <div class="border-b-2 border-gray-200 py-4" id="borderLine"></div>
-        </div>
-        <div id="contentBlock">
-            <div class="flex-initial flex justify-center items-center flex-col my-8">
-                <h3 class="text-6xl font-bold">Who am I?</h3>
+    <header class="darkestBlue px-72">
+        <page-header />
+    </header>
+    <body>
+        <div class="w-screen darkestBlue flex flex-col contentContainer justify-center text-white">
+            <test-line class="px-72" />
+            <div class="w-screen darkestBlue flex flex-col flex-0" id="contentBlock">
                 <transition name="fade-slide" mode="out-in" appear>
-                    <h3 :key="selectedText" class="text-3xl">
-                        {{ getText(selectedText) }}
-                    </h3>
+                    <div :key="selectedInfo" class="flex flex-col flex-1 justify-center">
+                        <div v-if="selectedInfo == 0" data-index="0" class="slide">
+                            <about-me-info />
+                        </div>
+                        <div v-if="selectedInfo == 1" data-index="1" class="slide">
+                            <skill-set-info />
+                        </div>
+                        <div v-if="selectedInfo == 2" data-index="2" class="slide">
+                            <cv-info />
+                        </div>
+                    </div>
                 </transition>
             </div>
-            <div class="flex-1 flex justify-center items-center flex-col my-32">
-                <h3 class="text-4xl">Dummy Content</h3>
+            <test-line class="px-72" direction="right" />
+            <div id="footerSelection" class="flex text-white px-72 py-16 max-h-4">
+                <div class="w-1/5 border-r-1 items-center justify-center text-center flex flex-1">
+                    <button @click="updateSelection('decrement')" class="hover-move-left">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="w-3/5 items-center justify-center text-center space-x-4 pb-2 flex">
+                    <p v-if="selectedInfo == 0">About Me</p>
+                    <p v-else-if="selectedInfo == 1">Tech Stack and Tools</p>
+                    <p v-else-if="selectedInfo == 2">CV</p>
+                </div>
+                <div class="w-1/5 border-r-1 items-center justify-center text-center flex flex-1">
+                    <button @click="updateSelection('increment')" class="hover-move-right">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
-
-    </div>
+    </body>
 </template>
 
 <script>
+import aboutMeInfo from '../views/aboutMe/aboutMe.vue';
+import skillSetInfo from '../views/aboutMe/skillset.vue';
+import cvInfo from '../views/aboutMe/cv.vue';
+import pageHeader from '../components/header.vue';
+import testLine from '../components/dividerLine.vue';
+
 export default {
-    name: 'TestPage',
+    name: 'aboutMe',
     data() {
         return {
-            selectedText: 1,
+            selectedInfo: 0
         };
     },
+    components: {
+        pageHeader,
+        aboutMeInfo,
+        testLine,
+        skillSetInfo,
+        cvInfo
+    },
     methods: {
-        getText(selectedText) {
-            const texts = {
-                1: 'Full-Stack Developer',
-                2: 'Cool Guy',
-                3: 'At times funny',
-                4: 'Uni Student',
-            };
-            return texts[selectedText];
+        updateSelection(direction) {
+            const currentDiv = this.getDivByIndex(this.selectedInfo);
+            currentDiv.classList.add(direction === 'decrement' ? 'off-right' : 'off-left');
+
+            this.selectedInfo = (this.selectedInfo + (direction === 'decrement' ? -1 : 1) + 3) % 3;
+
+            const newDiv = this.getDivByIndex(this.selectedInfo);
+            newDiv.classList.add(direction === 'decrement' ? 'off-left' : 'off-right');
+        },
+
+        getDivByIndex(index) {
+            return document.querySelector(`div[data-index='${index}']`);
         }
     },
     mounted() {
-        // Find the element with the id 'borderLine'
-        const line = document.getElementById('borderLine');
-
-        if (line) {
-            // Initially set the scale to 0 to make the line invisible
-            line.style.transform = 'scaleX(0)';
-
-            // Set the transform-origin to center to expand from the middle
-            line.style.transformOrigin = 'center';
-
-            // Use setTimeout to introduce a delay of 1 second before the animation starts
-            setTimeout(() => {
-                // Set the scale to 1 to expand the line to full width
-                line.style.transform = 'scaleX(1)';
-            }, 500); // 1000 ms delay
-        }
-        // Find the element with the id 'contentBlock'
+        const headerBlock = document.getElementById('headerBlock');
         const contentBlock = document.getElementById('contentBlock');
+        const footerSelection = document.getElementById('footerSelection');
 
         setTimeout(() => {
-            contentBlock.classList.add('is-loaded')
+            headerBlock.classList.add('is-loaded');
+            contentBlock.classList.add('is-loaded');
+            contentBlock.classList.add('flex-1');
+            footerSelection.classList.add('is-loaded');
         }, 1500); // 1000 ms delay
-
-        // Start the cycle for selectedText
-        setInterval(() => {
-            this.selectedText = this.selectedText === 4 ? 1 : this.selectedText + 1;
-        }, 3000); // 3000 ms interval for cycling through texts
     }
-}
+};
 </script>
 
-
 <style>
-#borderLine {
+header {
+    height: 10%;
+}
+
+body {
+    min-height: 90%;
+}
+
+#footerLine {
     width: 100%;
     /* Width */
     transition: transform 1s ease;
@@ -90,48 +111,36 @@ export default {
     /* Start with scale 0 */
 }
 
+#content {
+    margin-bottom: auto;
+}
+
+#footerSelection,
+#headerBlock {
+    opacity: 0;
+}
+
 #contentBlock {
     opacity: 0;
-
+    height: 20px !important;
 }
 
-#contentBlock.is-loaded {
+#footerSelection.is-loaded,
+#contentBlock.is-loaded,
+#headerBlock.is-loaded {
     opacity: 1;
-    transition: all 1s ease;
-    -webkit-transition: all 1s;
+    height: auto;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s;
 }
 
-/* Keyframes for fading and sliding animations */
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.hover-move-left:hover i {
+    transform: translateX(-5px);
+    transition: transform 0.3s ease;
 }
 
-@keyframes fadeOutLeft {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    to {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-}
-
-/* Transition classes for fade-slide */
-.fade-slide-enter-active {
-    animation: fadeInRight 1s forwards;
-}
-
-.fade-slide-leave-active {
-    animation: fadeOutLeft 1s forwards;
+.hover-move-right:hover i {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
 }
 </style>
