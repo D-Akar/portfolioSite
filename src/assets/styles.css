@@ -45,16 +45,6 @@
     transform: scale(1.1);
 }
 
-/* .fade-enter-active,
-.fade-leave-active {
-    transition: opacity 1s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-} */
-
 /* Keyframes for fading and sliding animations */
 @keyframes fadeInRight {
     from {
@@ -91,8 +81,10 @@
 
 .headerContainer {
     min-height: 6rem;
+    max-height: 6rem;
 }
 
 .contentContainer {
     min-height: calc(100vh - 6rem);
+    max-height: calc(100vh - 6rem);
 }

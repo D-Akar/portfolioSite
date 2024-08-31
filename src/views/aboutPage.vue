@@ -4,14 +4,14 @@
     </header>
     <body>
         <div class="w-screen darkestBlue flex flex-col contentContainer justify-center text-white">
-            <test-line class="px-72" />
+            <divider-line class="px-72" />
             <div class="w-screen darkestBlue flex flex-col flex-0" id="contentBlock">
                 <transition name="fade-slide" mode="out-in" appear>
                     <div :key="selectedInfo" class="flex flex-col flex-1 justify-center">
-                        <div v-if="selectedInfo == 0" data-index="0" class="slide">
+                        <div v-if="selectedInfo == 0" data-index="0" class="slide justify-center items-center flex">
                             <about-me-info />
                         </div>
-                        <div v-if="selectedInfo == 1" data-index="1" class="slide">
+                        <div v-if="selectedInfo == 1" data-index="1" class="slide justify-center items-center flex">
                             <skill-set-info />
                         </div>
                         <div v-if="selectedInfo == 2" data-index="2" class="slide">
@@ -20,7 +20,7 @@
                     </div>
                 </transition>
             </div>
-            <test-line class="px-72" direction="right" />
+            <divider-line class="px-72" direction="right" />
             <div id="footerSelection" class="flex text-white px-72 py-16 max-h-4">
                 <div class="w-1/5 border-r-1 items-center justify-center text-center flex flex-1">
                     <button @click="updateSelection('decrement')" class="hover-move-left">
@@ -47,7 +47,7 @@ import aboutMeInfo from '../views/aboutMe/aboutMe.vue';
 import skillSetInfo from '../views/aboutMe/skillset.vue';
 import cvInfo from '../views/aboutMe/cv.vue';
 import pageHeader from '../components/header.vue';
-import testLine from '../components/dividerLine.vue';
+import dividerLine from '../components/dividerLine.vue';
 
 export default {
     name: 'aboutMe',
@@ -59,7 +59,7 @@ export default {
     components: {
         pageHeader,
         aboutMeInfo,
-        testLine,
+        dividerLine,
         skillSetInfo,
         cvInfo
     },
@@ -88,7 +88,7 @@ export default {
             contentBlock.classList.add('is-loaded');
             contentBlock.classList.add('flex-1');
             footerSelection.classList.add('is-loaded');
-        }, 1500); // 1000 ms delay
+        }, 1500);
     }
 };
 </script>
