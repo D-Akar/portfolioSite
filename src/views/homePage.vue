@@ -3,13 +3,13 @@
         <div class="flex-1 flex justify-end items-center flex-col my-32">
             <div class="flex items-center">
                 <h1 class="text-8xl font-bold">Hi there! I'm</h1>
-                <h1 class="text-8xl font-bold wordContainer ml-1">
+                <h2 class="text-8xl font-bold wordContainer ml-1">
                     <span class="word textPurple">Derin.</span>
                     <span class="word textBlue">Derin.</span>
                     <span class="word textRed">Derin.</span>
                     <span class="word textGreen">Derin.</span>
                     <span class="word textYellow">Derin.</span>
-                </h1>
+                </h2>
             </div>
             <skillRotation />
         </div>
