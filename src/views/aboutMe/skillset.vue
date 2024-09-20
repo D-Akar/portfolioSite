@@ -91,73 +91,73 @@ export default {
                     name: 'HTML',
                     rating: 3,
                     description: 'A classic that I have been making use of for over 5 years at this point alongisde JS and CSS.',
-                    imageUrl: 'src/public/techstack/html.svg'
+                    imageUrl: '/techstack/html.svg'
                 },
                 {
                     name: 'Javascript',
                     rating: 3,
                     description: 'A classic that I have been making use of for over 5 years at this point alongisde HTML and CSS.',
-                    imageUrl: 'src/public/techstack/js.svg'
+                    imageUrl: '/techstack/js.svg'
                 },
                 {
                     name: 'CSS',
                     rating: 3,
                     description: 'A classic that I have been making use of for over 5 years at this point alongisde HTML and JS.',
-                    imageUrl: 'src/public/techstack/css.svg'
+                    imageUrl: '/techstack/css.svg'
                 },
                 {
                     name: 'Tailwind CSS',
                     rating: 3,
                     description: 'My CSS Framework of choice, have over 1,5 years of experience and has been utilized in practically all projects I have built since learning it (including this page).',
-                    imageUrl: 'src/public/techstack/tailwind.svg'
+                    imageUrl: '/techstack/tailwind.svg'
                 },
                 {
                     name: 'PHP',
                     rating: 2,
                     description: 'One of the first languages I ever grew proficient in, first used in the setup of a new book checkout system for my high school and now a regular tool in the development of plugins and custom functionality for WordPress websites.',
-                    imageUrl: 'src/public/techstack/php.svg'
+                    imageUrl: '/techstack/php.svg'
                 },
                 {
                     name: 'Java',
                     rating: 2,
                     description: 'My very first language which has been a companion of mine throughout uni.',
-                    imageUrl: 'src/public/techstack/java.svg'
+                    imageUrl: '/techstack/java.svg'
                 },
                 {
                     name: 'PostgreSQL',
                     rating: 1,
                     description: 'language',
-                    imageUrl: 'src/public/techstack/postgresql.svg'
+                    imageUrl: '/techstack/postgresql.svg'
                 },
                 {
                     name: 'Go',
                     rating: 1,
                     description: 'language',
-                    imageUrl: 'src/public/techstack/go.svg'
+                    imageUrl: '/techstack/go.svg'
                 },
                 {
                     name: 'Express',
                     rating: 1,
                     description: 'language',
-                    imageUrl: 'src/public/techstack/express.svg'
+                    imageUrl: '/techstack/express.svg'
                 },
                 {
                     name: 'React',
                     rating: 1,
                     description: 'language',
-                    imageUrl: 'src/public/techstack/react.svg'
+                    imageUrl: '/techstack/react.svg'
                 },
                 {
                     name: 'Vue',
                     rating: 3,
                     description: 'I first began using Vue at my current workspace',
-                    imageUrl: 'src/public/techstack/vue.svg'
+                    imageUrl: '/techstack/vue.svg'
                 },
                 {
                     name: 'Node.js',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/techstack/node-js.svg'
+                    imageUrl: '/techstack/node-js.svg'
                 }
             ],
             tools: [
@@ -165,85 +165,85 @@ export default {
                     name: 'Asana',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/asana.svg'
+                    imageUrl: '/tools/asana.svg'
                 },
                 {
                     name: 'Docker',
                     rating: 1,
                     description: 'language',
-                    imageUrl: 'src/public/tools/docker.svg'
+                        imageUrl: '/tools/docker.svg'
                 },
                 {
                     name: 'Figma',
                     rating: 2,
                     description: 'language',
-                    imageUrl: 'src/public/tools/figma.svg'
+                    imageUrl: '/tools/figma.svg'
                 },
                 {
                     name: 'Firebase',
                     rating: 1,
                     description: 'language',
-                    imageUrl: 'src/public/tools/firebase.svg'
+                    imageUrl: '/tools/firebase.svg'
                 },
                 {
                     name: 'Git',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/git.svg'
+                    imageUrl: '/tools/git.svg'
                 },
                 {
                     name: 'Hetzner',
                     rating: 2,
                     description: 'language',
-                    imageUrl: 'src/public/tools/hetzner.svg'
+                    imageUrl: '/tools/hetzner.svg'
                 },
                 {
                     name: 'Make.com (formerly Integromat)',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/integromat.svg'
+                    imageUrl: '/tools/integromat.svg'
                 },
                 {
                     name: 'Jira',
                     rating: 1,
                     description: 'language',
-                    imageUrl: 'src/public/tools/jira.svg'
+                    imageUrl: '/tools/jira.svg'
                 },
                 {
                     name: 'Obsidian',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/obsidian.svg'
+                    imageUrl: '/tools/obsidian.svg'
                 },
                 {
                     name: 'Postman',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/postman.svg'
+                    imageUrl: '/tools/postman.svg'
                 },
                 {
                     name: 'Stripe',
                     rating: 2,
                     description: 'language',
-                    imageUrl: 'src/public/tools/stripe.svg'
+                    imageUrl: '/tools/stripe.svg'
                 },
                 {
                     name: 'VSCode',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/vscode.svg'
+                    imageUrl: '/tools/vscode.svg'
                 },
                 {
                     name: 'WordPress',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/wordpress.svg'
+                    imageUrl: '/tools/wordpress.svg'
                 },
                 {
                     name: 'Zoho',
                     rating: 3,
                     description: 'language',
-                    imageUrl: 'src/public/tools/zoho.svg'
+                    imageUrl: '/tools/zoho.svg'
                 }
             ],
             certs: [
