@@ -1,6 +1,6 @@
 <template>
-    <div class="flex items-center flex-col my-16 justify-center space-y-16 w-1/2">
-        <h3 class="text-6xl font-bold text-white">What can I do?</h3>
+    <div class="flex items-center flex-col my-16 space-y-16 justify-center w-1/2">
+        <h3 class="text-5xl 2xl:text-6xl font-bold text-white">What can I do?</h3>
         <div class="flex flex-row w-full">
             <div class="flex flex-col space-y-2 items-center justify-center w-1/5">
                 <div @click="selectRating(3)"

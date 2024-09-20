@@ -1,16 +1,16 @@
 <template>
-    <header class="darkestBlue px-72 text-white">
+    <header class="darkestBlue px-16 lg:px-32 2xl:px-72 text-white">
         <page-header />
     </header>
 
     <body>
         <div class="w-screen darkestBlue flex flex-col contentContainer justify-center text-white">
 
-            <divider-line class="px-72" />
+            <divider-line class="px-16 lg:px-32 2xl:px-72" />
             <div class="w-screen darkestBlue flex flex-col flex-0 items-center justify-center" id="contentBlock">
                 <h3 class="text-4xl text-center">More information on projects coming soon!</h3>
             </div>
-            <divider-line class="px-72" direction="right" />
+            <divider-line class="px-16 lg:px-32 2xl:px-72" direction="right" />
         </div>
     </body>
 </template>

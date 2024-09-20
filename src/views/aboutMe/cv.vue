@@ -1,6 +1,6 @@
 <template>
-    <div class="flex-1 flex items-center flex-col my-32 justify-center">
-    <h3 class="text-6xl font-bold text-white pb-8">Who am I?</h3>
+    <div class="flex-1 flex items-center flex-col my-8 justify-center">
+    <h3 class="text-5xl 2xl:text-6xl font-bold text-white pb-8">Who am I?</h3>
         <div class="carousel-container">
             <div class="carousel" ref="carousel">
                 <div class="flex flex-row space-x-8">

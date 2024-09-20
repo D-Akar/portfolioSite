@@ -1,11 +1,11 @@
 <template>
-    <header class="darkestBlue px-72">
+    <header class="darkestBlue px-16 lg:px-32 2xl:px-72">
         <page-header />
     </header>
 
     <body>
         <div class="w-screen darkestBlue flex flex-col contentContainer justify-center text-white transition-container">
-            <divider-line class="px-72" />
+            <divider-line class="px-16 lg:px-32 2xl:px-72" />
             <div class="w-screen darkestBlue flex flex-col flex-0" id="contentBlock">
                 <transition name="fade-slide" mode="out-in" appear>
                     <div :key="selectedInfo" class="flex flex-col flex-1 justify-center">
@@ -13,13 +13,13 @@
                         <div v-if="selectedInfo == 0" data-index="0" class="slide justify-center items-center flex">
                             <skill-set-info />
                         </div>
-                        <div v-if="selectedInfo == 1" data-index="1" class="slide">
+                        <div v-if="selectedInfo == 1" data-index="1" class="slide justify-center items-center flex">
                             <cv-info />
                         </div>
                     </div>
                 </transition>
             </div>
-            <divider-line class="px-72" direction="right" />
+            <divider-line class="px-16 lg:px-32 2xl:px-72" direction="right" />
             <div id="footerSelection" class="flex text-white px-72 py-16 max-h-4">
                 <div class="w-1/5 border-r-1 items-center justify-center text-center flex flex-1">
                     <button @click="updateSelection('decrement')" class="hover-move-left">

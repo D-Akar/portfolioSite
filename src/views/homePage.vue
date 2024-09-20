@@ -1,6 +1,6 @@
 <template>
     <div class="h-screen w-screen pinkBase flex flex-col overflow-hidden text-white">
-        <div class="flex-1 flex justify-end items-center flex-col my-32">
+        <div class="flex-1 flex justify-end items-center flex-col my-8 xl:my-16 2xl:my-32">
             <div class="flex items-center">
                 <h1 class="text-8xl font-bold">Hi there! I'm</h1>
                 <h2 class="text-8xl font-bold wordContainer ml-1">
@@ -13,8 +13,8 @@
             </div>
             <skillRotation />
         </div>
-        <div class="flex-1 border-solid border-t-2 border-gray-200 mx-72">
-            <nav class="flex flex-row pt-16">
+        <div class="flex-1 border-solid border-t-2 border-gray-200 mx-16 lg:mx-32 2xl:mx-72">
+            <nav class="flex flex-row pt-12 2xl:pt-16">
                 <a class="flex-1 text-4xl font-bold flex items-center justify-center headerHover"
                     href="/about-me">About</a>
                 <a class="flex-1 text-4xl font-bold flex items-center justify-center headerHover"
