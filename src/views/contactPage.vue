@@ -7,7 +7,7 @@
     </header>
 
     <body>
-        <div class="w-screen darkestBlue flex flex-col contentContainer justify-center text-white">
+        <div class="w-screen darkestBlue flex flex-col contentContainer justify-center text-white contentBlock">
             <h3 class="text-4xl text-center">
                 You can reach me <a href="mailto:derinaliakar@gmail.com"
                     class="text-red-500 hover:text-red-300 hover:animate-pulse">here</a>.
@@ -33,7 +33,7 @@ export default {
             contentBlock.classList.add('is-loaded');
             contentBlock.classList.add('flex-1');
             footerSelection.classList.add('is-loaded');
-        }, 1500);
+        }, 0);
     }
 }
 </script>

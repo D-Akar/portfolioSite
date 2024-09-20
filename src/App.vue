@@ -6,22 +6,3 @@
     </transition>
   </router-view>
 </template>
-
-<style>
-/** Route Transitions*/
-.route-enter-from {
-  opacity: 0;
-}
-
-.route-enter-active {
-  transition: all 1s ease-out;
-}
-
-.route-leave-to {
-  opacity: 0;
-}
-
-.route-leave-active {
-  transition: all 1s ease-in
-}
-</style>
