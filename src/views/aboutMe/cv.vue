@@ -1,5 +1,6 @@
 <template>
     <div class="flex-1 flex items-center flex-col my-32 justify-center">
+    <h3 class="text-6xl font-bold text-white pb-8">Who am I?</h3>
         <div class="carousel-container">
             <div class="carousel" ref="carousel">
                 <div class="flex flex-row space-x-8">
@@ -66,12 +67,12 @@
                             <ul class="text-gray-200 space-y-2">
                                 <li>
                                     I love to play the guitar and bass, could also be considered a half-decent producer.
-                                    If you want to start a band <a href="/contact" class="text-red-500">hit me up.</a>
+                                    If you want to start a band <a href="/contact" class="text-red-500 hover:text-red-300">hit me up.</a>
                                 </li>
                                 <li>
                                     Passionate reader with little space left on the bookshelf. Like to give book
                                     <a href="https://www.penguinrandomhouse.com/books/553182/american-prison-by-shane-bauer/"
-                                        class="text-red-500">recommendations.</a>
+                                        class="text-red-500 hover:text-red-300">recommendations.</a>
                                 </li>
                                 <li>
                                     Keeping fit through bouldering, hikes and any sport you can think of.
@@ -83,26 +84,31 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-button prev" @click="scroll('left')">&lt;</button>
-                <button class="carousel-button next" @click="scroll('right')">&gt;</button>
             </div>
         </div>
-        <div class="flex flex-col justify-center pt-8">
-            <p>For a simplified PDF version click <a href="" class="text-red-500">here</a></p>
+        <div class="flex flex-col justify-center pt-8 space-x-8">
+            <p>For a simplified PDF version click <a href="" class="text-red-500 hover:text-red-300">here</a></p>
             <div>
                 <ul class="flex flex-row space-x-4 justify-center">
                     <li>
-                        <a href="instagram.com/max_kuehne" class="text-red-500">Instagram</a>
-
+                        <a href="https://www.instagram.com/d3r.in/" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="x.com/maxkuehne" class="text-red-500">X</a>
+                        <a href="https://x.com/0dakar" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-x-twitter fa-lg"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="linkedin.com/in/maxkuehne" class="text-red-500">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/derin-akar/" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="github.com/maxkuehne" class="text-red-500">GitHub</a>
+                        <a href="https://github.com/D-Akar" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -139,9 +145,14 @@ export default {
     },
     mounted() {
         const carousel = this.$refs.carousel;
+        let scrollTimeout;
+
         carousel.addEventListener('wheel', (e) => {
             e.preventDefault();
-            this.scroll(e.deltaY > 0 ? 'right' : 'left');
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                this.scroll(e.deltaY > 0 ? 'right' : 'left');
+            }, 30); // Adjust this value to control scroll sensitivity
         });
 
         let isDown = false;
@@ -241,4 +252,13 @@ export default {
 }
 
 /* ... existing styles ... */
+
+/* Add these styles for the icons */
+.fab {
+    transition: transform 0.2s ease-in-out;
+}
+
+.fab:hover {
+    transform: scale(1.2);
+}
 </style>

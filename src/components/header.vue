@@ -1,8 +1,8 @@
 <template>
     <div class="flex space-x-4 text-white justify-center headerContainer" id="headerBlock">
-        <a class="flex-1 text-base font-bold flex items-center justify-center headerHover" href="/">Home</a>
-        <a class="flex-1 text-base font-bold flex items-center justify-center headerHover" href="/about-me">About</a>
-        <a class="flex-1 text-base font-bold flex items-center justify-center headerHover"
+        <a class="flex-1 text-base font-bold text-white flex items-center justify-center headerHover" href="/">Home</a>
+        <a class="flex-1 text-base font-bold text-white flex items-center justify-center headerHover" href="/about-me">About</a>
+        <a class="flex-1 text-base font-bold text-white flex items-center justify-center headerHover"
             href="/portfolio">Portfolio</a>
         <a class="flex-1 text-base font-bold flex items-center justify-center headerHover" href="/contact">Contact</a>
     </div>

@@ -22,6 +22,18 @@ export default {
     name: 'contactMe',
     components: {
         pageHeader
+    },
+    mounted() {
+        const headerBlock = document.getElementById('headerBlock');
+        const contentBlock = document.getElementById('contentBlock');
+        const footerSelection = document.getElementById('footerSelection');
+
+        setTimeout(() => {
+            headerBlock.classList.add('is-loaded');
+            contentBlock.classList.add('is-loaded');
+            contentBlock.classList.add('flex-1');
+            footerSelection.classList.add('is-loaded');
+        }, 1500);
     }
 }
 </script>
