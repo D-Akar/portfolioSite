@@ -1,57 +1,70 @@
 <template>
     <div class="flex items-center flex-col my-16 justify-center space-y-16 w-1/2">
-        <div class="flex space-x-2">
-            <div @click="selectRating(3)" :class="['flex', 'skillSelector', { active: selectedRating === 3 }]">
-                3 star
+        <h3 class="text-6xl font-bold text-white">What can I do?</h3>
+        <div class="flex flex-row w-full">
+            <div class="flex flex-col space-y-2 items-center justify-center w-1/5">
+                <div @click="selectRating(3)"
+                    :class="['flex', 'flex-col', 'skillSelector', { active: selectedRating === 3 }]">
+                    <span class="row-top">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                    <span class="m-t">
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+                <div @click="selectRating(2)" :class="['flex', 'skillSelector', { active: selectedRating === 2 }]">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div @click="selectRating(1)" :class="['flex', 'skillSelector', { active: selectedRating === 1 }]">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div @click="selectRating(0)" :class="['flex', 'skillSelector', { active: selectedRating === 0 }]"><i
+                        class="far fa-star"></i></div>
             </div>
-            <div @click="selectRating(2)" :class="['flex', 'skillSelector', { active: selectedRating === 2 }]">
-                2 star
-            </div>
-            <div @click="selectRating(1)" :class="['flex', 'skillSelector', { active: selectedRating === 1 }]">
-                1 star
-            </div>
-            <div @click="selectRating(0)" :class="['flex', 'skillSelector', { active: selectedRating === 0 }]">all</div>
-        </div>
-        <div class="flex flex-col w-full items-center">
-            <div class="w-full lg:w-4/5 2xl:w-2/3 p-4 items-center justify-center space-y-2">
-                <p class="w-full text-center">Tech Stack:</p>
-                <div class="flex flex-wrap overflow justify-center items-center">
-                    <div v-for="skill in filteredSkills" :key="skill.name" class="skill-item flex space-x-2 mr-2 mb-2">
-                        <div
-                            @click="selectedItem = skill"
-                            class="iconContainer flex justify-center items-center bg-white px-8">
-                            <img :src="skill.imageUrl" :alt="skill.name" class="skill-icon" />
+            <div class="flex flex-col items-center w-full space-y-2">
+                <div class="w-4/5 items-center justify-center space-y-2">
+                    <p class="w-full text-center">Tech Stack:</p>
+                    <div class="flex flex-wrap overflow justify-center items-center">
+                        <div v-for="skill in filteredSkills" :key="skill.name"
+                            class="skill-item flex space-x-2 mr-2 mb-2">
+                            <div @click="selectedItem = skill"
+                                class="iconContainer flex justify-center items-center border-white px-8">
+                                <img :src="skill.imageUrl" :alt="skill.name" class="skill-icon" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <p class="w-full text-center">Tools & Services</p>
-                <div class="flex flex-wrap overflow justify-center items-center">
-                    <div v-for="tool in filteredTools" :key="tool.name" class="skill-item flex space-x-2 mr-2 mb-2">
-                        <div
-                            @click="selectedItem = tool"
-                            class="iconContainer flex justify-center items-center bg-white px-8">
-                            <img :src="tool.imageUrl" :alt="tool.name" class="skill-icon" />
+                    <p class="w-full text-center">Tools & Services</p>
+                    <div class="flex flex-wrap overflow justify-center items-center">
+                        <div v-for="tool in filteredTools" :key="tool.name" class="skill-item flex space-x-2 mr-2 mb-2">
+                            <div @click="selectedItem = tool"
+                                class="iconContainer flex justify-center items-center border-white px-8">
+                                <img :src="tool.imageUrl" :alt="tool.name" class="skill-icon" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="w-full text-center">
-                    <p>Certifications:</p>
-                    <ul>
-                        <li>Advanced Developer for Make.com</li>
-                    </ul>
+                    <div class="w-full text-center">
+                        <p>Certifications:</p>
+                        <ul>
+                            <li>Advanced Developer for Make.com</li>
+                        </ul>
 
+                    </div>
                 </div>
-            </div>
-            <div class="w-1/2 p-8 items-center justify-center">
-                <div v-if="selectedItem" class="flex flex-col">
-                    <ul class="space-y-2 text-center">
-                        <li class="justify-center">{{ selectedItem.name }}</li>
-                        <li>Skill level: {{ selectedItem.rating }}/3</li>
-                        <li>{{ selectedItem.description }}</li>
-                    </ul>
-                </div>
+                <!-- <div class="h-1/5 items-center justify-center">
+                    <div v-if="selectedItem" class="flex flex-col">
+                        <ul class="space-y-2 text-center">
+                            <li class="justify-center">{{ selectedItem.name }}</li>
+                            <li>Skill level: {{ selectedItem.rating }}/3</li>
+                            <li>{{ selectedItem.description }}</li>
+                        </ul>
+                    </div>
+                </div> -->
             </div>
         </div>
+
+
         <!-- <p>I do a bunch of different tech stacks n stuff wooo!</p>
         <div>
             Skill list: Hosting infra and development pipelines, Front-end dev Back-end dev Design Creation of RPA
@@ -231,12 +244,6 @@ export default {
                     rating: 3,
                     description: 'language',
                     imageUrl: 'src/public/tools/zoho.svg'
-                },
-                {
-                    name: 'Powershell Universal',
-                    rating: 1,
-                    description: 'language',
-                    imageUrl: 'src/public/tools/stripe.svg'
                 }
             ],
             certs: [

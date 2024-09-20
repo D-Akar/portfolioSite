@@ -2,6 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.text {
+  position: absolute;
+  width: 600px;
+  left: 50%;
+  margin-left: -225px;
+  height: 40px;
+  top: 50%;
+  margin-top: -20px;
+}
+
+.word {
+  position: absolute;
+  opacity: 0;
+  white-space: nowrap; /* Ensure the word does not wrap */
+}
+
+.letter {
+  display: inline-block; /* Ensure letters are inline */
+  position: relative;
+  float: left;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+  transform: rotateX(-90deg);
+}
+
+.letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.textPurple {
+  color: #8e44ad;
+}
+
+.textBlue {
+  color: #2980b9;
+}
+
+.textRed {
+  color: #c0392b;
+}
+
+.textGreen {
+    color: #157F1F;
+}
+
+.textYellow {
+    color: #FDE74C;
+}
+
+.wordContainer {
+    min-width: 300px;
+    min-height: 50px;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
 .pinkBase {
     background-color: #f8d0c8;
 }
@@ -87,4 +154,58 @@
 .contentContainer {
     min-height: calc(100vh - 6rem);
     max-height: calc(100vh - 6rem);
+}
+
+#contentBlock {
+    opacity: 0;
+    height: 20px !important;
+}
+
+#footerSelection.is-loaded,
+#contentBlock.is-loaded,
+#headerBlock.is-loaded {
+    opacity: 1;
+    height: auto;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s;
+}
+
+.hover-move-left:hover i {
+    transform: translateX(-5px);
+    transition: transform 0.3s ease;
+}
+
+.hover-move-right:hover i {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+header {
+    height: 10%;
+}
+
+body {
+    min-height: 90%;
+}
+
+#footerLine {
+    width: 100%;
+    /* Width */
+    transition: transform 1s ease;
+    /* Transition duration set to 1 second */
+    transform: scaleX(0);
+    /* Start with scale 0 */
+}
+
+#content {
+    margin-bottom: auto;
+}
+
+#footerSelection,
+#headerBlock {
+    opacity: 0;
+}
+
+.transition-container {
+    overflow: hidden;
 }
