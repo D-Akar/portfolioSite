@@ -1,6 +1,6 @@
 <template>
     <div class="flex-1 flex items-center flex-col my-8 justify-center">
-    <h3 class="text-5xl 2xl:text-6xl font-bold text-white pb-8">Who am I?</h3>
+        <h3 class="text-5xl 2xl:text-6xl font-bold text-white pb-8">Who am I?</h3>
         <div class="carousel-container">
             <div class="carousel" ref="carousel">
                 <div class="flex flex-row space-x-8">
@@ -31,11 +31,11 @@
                         <div class="border rounded border-white p-6 h-full">
                             <h2 class="text-2xl font-bold">Education</h2>
                             <h3 class="text-xl">Information Systems @TUM</h3>
-                            <p>2023 - Present</p>
+                            <p>2022 - Present</p>
                             <h3 class="text-xl">Informatics @TUM</h3>
-                            <p>2020 - 2022</p>
+                            <!--<p>2020 - 2022</p>
                             <p class="text-gray-200">Dropped out due to health reasons, credits transferred to current
-                                degree</p>
+                                degree</p>-->
                             <h3 class="text-xl">Werner-von-Siemens Gymnasium</h3>
                             <p>- 2019</p>
                             <p class="text-gray-200">Graduated with a final grade of 1.7</p>
@@ -67,7 +67,8 @@
                             <ul class="text-gray-200 space-y-2">
                                 <li>
                                     I love to play the guitar and bass, could also be considered a half-decent producer.
-                                    If you want to start a band <a href="/contact" class="text-red-500 hover:text-red-300">hit me up.</a>
+                                    If you want to start a band <a href="/contact"
+                                        class="text-red-500 hover:text-red-300">hit me up.</a>
                                 </li>
                                 <li>
                                     Passionate reader with little space left on the bookshelf. Like to give book
@@ -91,22 +92,26 @@
             <div>
                 <ul class="flex flex-row space-x-4 justify-center">
                     <li>
-                        <a href="https://www.instagram.com/d3r.in/" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/d3r.in/" class="text-red-500 hover:text-red-300"
+                            target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-instagram fa-lg"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://x.com/0dakar" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                        <a href="https://x.com/0dakar" class="text-red-500 hover:text-red-300" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-x-twitter fa-lg"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/derin-akar/" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/derin-akar/" class="text-red-500 hover:text-red-300"
+                            target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin fa-lg"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/D-Akar" class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/D-Akar" class="text-red-500 hover:text-red-300" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-github fa-lg"></i>
                         </a>
                     </li>

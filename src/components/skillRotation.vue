@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-initial flex justify-center items-center flex-col my-8 text-white">
+    <div class="flex-initial flex justify-center items-end flex-col my-8 text-white">
         <transition name="fade-slide" mode="out-in" appear>
             <h3 :key="selectedText" class="text-3xl">
                 {{ getText(selectedText) }}
