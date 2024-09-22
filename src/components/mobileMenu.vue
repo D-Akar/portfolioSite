@@ -1,26 +1,56 @@
 <template>
     <div>
-        <transition name="circle">
-            <div v-show="!isOpen" :class="['menu-button', { 'active': isOpen }]" @click="openMenu">
+        <transition :name="transitionName">
+            <div v-show="!isOpen" :class="['menu-button', position, { 'active': isOpen }]" @click="openMenu">
                 <svg class="menu-text" viewBox="0 0 100 100">
                     <path id="curve" d="M 25, 50 a 25,25 0 1,1 50,0 a 25,25 0 1,1 -50,0" />
                     <text>
                         <textPath xlink:href="#curve">
-                            CLICK ME CLICK ME CLICK ME
+                            CLICK HERE CLICK HERE CLICK HERE
                         </textPath>
                     </text>
                 </svg>
             </div>
         </transition>
-        <transition name="circle">
+        <transition :name="transitionName">
             <div v-show="isOpen" class="menu-content">
-                <button class="close-button" @click="closeMenu">×</button>
-                <nav class="flex flex-col lg:space-y-0 items-center">
+                <button class="close-button text-white" @click="closeMenu">×</button>
+                <nav class="flex flex-col lg:space-y-0 items-center text-white">
+                    <a class="text-4xl my-4 font-bold flex justify-center headerHover" href="/">Home</a>
                     <a class="text-4xl my-4 font-bold flex justify-center headerHover" href="/about-me">About</a>
                     <a class="text-4xl my-4 font-bold flex justify-center headerHover" href="/portfolio">Portfolio</a>
                     <a class="text-4xl my-4 font-bold flex justify-center headerHover" href="/contact">Contact</a>
                 </nav>
-
+                <div class="flex flex-col justify-center pt-8 space-x-8">
+                    <div>
+                        <ul class="flex flex-row space-x-4 justify-center">
+                            <li>
+                                <a href="https://www.instagram.com/d3r.in/" class="text-red-500 hover:text-red-300"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-instagram fa-lg"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://x.com/0dakar" class="text-red-500 hover:text-red-300" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <i class="fab fa-x-twitter fa-lg"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/derin-akar/"
+                                    class="text-red-500 hover:text-red-300" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin fa-lg"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/D-Akar" class="text-red-500 hover:text-red-300"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github fa-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </transition>
     </div>
@@ -28,9 +58,21 @@
 
 <script>
 export default {
+    props: {
+        position: {
+            type: String,
+            default: 'bottom-right',
+            validator: (value) => ['top-center', 'bottom-right'].includes(value)
+        }
+    },
     data() {
         return {
             isOpen: false
+        }
+    },
+    computed: {
+        transitionName() {
+            return this.position === 'top-center' ? 'slide-vertical' : 'slide-horizontal';
         }
     },
     methods: {
@@ -47,14 +89,22 @@ export default {
 <style scoped>
 .menu-button {
     position: fixed;
-    bottom: -50px;
-    right: -50px;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background-color: #050A18;
     cursor: pointer;
     z-index: 1001;
+}
+
+.menu-button.bottom-right {
+    bottom: -40px;
+    right: -40px;
+}
+
+.menu-button.top-center {
+    top: -60px;
+    left: calc(50% - 60px);
 }
 
 .menu-text {
@@ -79,15 +129,20 @@ export default {
 
 .menu-text text {
     fill: white;
-    font-size: 11px;
+    font-size: 9px;
+    /* Reduced from 11px to maintain proportions */
 }
 
 .circle {
     position: absolute;
-    top: 25px;
-    left: 25px;
-    width: 50px;
-    height: 50px;
+    top: 20px;
+    /* Adjusted from 25px */
+    left: 20px;
+    /* Adjusted from 25px */
+    width: 40px;
+    /* Adjusted from 50px */
+    height: 40px;
+    /* Adjusted from 50px */
     border-radius: 50%;
     background-color: white;
     display: flex;
@@ -112,7 +167,6 @@ export default {
 }
 
 .menu-content a {
-    color: white;
     font-size: 24px;
     margin: 10px 0;
     text-decoration: none;
@@ -128,17 +182,20 @@ export default {
     transition: all 0.3s ease;
 }
 
-.close-button:hover {
-    background-color: #f0f0f0;
-}
-
-.circle-enter-active,
-.circle-leave-active {
+.slide-vertical-enter-active,
+.slide-vertical-leave-active,
+.slide-horizontal-enter-active,
+.slide-horizontal-leave-active {
     transition: transform 0.5s ease;
 }
 
-.circle-enter-from,
-.circle-leave-to {
+.slide-vertical-enter-from,
+.slide-vertical-leave-to {
+    transform: translateY(-100%);
+}
+
+.slide-horizontal-enter-from,
+.slide-horizontal-leave-to {
     transform: translateX(100%);
 }
 </style>

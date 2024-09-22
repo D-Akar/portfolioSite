@@ -8,7 +8,7 @@
 
                     Hi
                     there! <span class="hidden md:block ml-1">I'm</span><span class="block md:hidden">The
-                        names</span></h1>
+                        name's</span></h1>
                 <h2 class="text-8xl font-bold wordContainer ml-0 lg:ml-1">
                     <span class="word textPurple w-full md:w-auto px-4 lg:px-0">Derin.</span>
                     <span class="word textBlue w-full md:w-auto px-4 lg:px-0">Derin.</span>
@@ -25,7 +25,8 @@
             </div>
             <skillRotation class="w-full md:w-auto flex" />
         </div>
-        <div class="hidden md:block flex-1 border-solid border-t-2 border-gray-200 mx-8 lg:mx-32 2xl:mx-72 h-full">
+        <dividerLine class="hidden md:block" direction="center" />
+        <div class="hidden md:block flex-1 border-solid border-gray-200 mx-8 lg:mx-32 2xl:mx-72 h-full">
 
             <nav
                 class="flex flex-col lg:flex-row pt-12 2xl:pt-16 space-y-4 md:space-y-16 lg:space-y-0 items-end md:items-center">
@@ -34,7 +35,7 @@
                 <a class="flex-1 text-4xl font-bold flex justify-center headerHover" href="/contact">Contact</a>
             </nav>
         </div>
-        <mobileMenu class="block md:hidden" />
+        <mobileMenu class="block md:hidden" position="bottom-right" />
     </div>
 </template>
 
@@ -42,11 +43,13 @@
 <script>
 import skillRotation from '../components/skillRotation.vue'
 import mobileMenu from '../components/mobileMenu.vue'
+import dividerLine from '../components/dividerLine.vue';
 
 export default {
     components: {
         skillRotation,
-        mobileMenu
+        mobileMenu,
+        dividerLine
     },
     mounted() {
         this.startFontColorChange();

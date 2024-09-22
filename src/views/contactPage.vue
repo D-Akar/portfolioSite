@@ -1,9 +1,7 @@
-<script setup>
-</script>
-
 <template>
-    <header class="darkestBlue px-72 text-white">
-        <page-header />
+    <header class="darkestBlue px-8 md:px-16 lg:px-32 2xl:px-72">
+        <page-header class="hidden md:flex" />
+        <mobileMenu class="block md:hidden" position="top-center" />
     </header>
 
     <body>
@@ -18,10 +16,13 @@
 
 <script>
 import pageHeader from '../components/header.vue';
+import mobileMenu from '../components/mobileMenu.vue';
+
 export default {
     name: 'contactMe',
     components: {
-        pageHeader
+        pageHeader,
+        mobileMenu
     },
     mounted() {
         const headerBlock = document.getElementById('headerBlock');

@@ -1,8 +1,10 @@
 <template>
-    <div class="flex items-center flex-col my-16 space-y-16 justify-center w-1/2">
-        <h3 class="text-5xl 2xl:text-6xl font-bold text-white">What can I do?</h3>
-        <div class="flex flex-row w-full">
-            <div class="flex flex-col space-y-2 items-center justify-center w-1/5">
+    <div
+        class="h-full flex items-center flex-col py-16 space-y-4 md:space-y-16 justify-start md:justify-center px-6 md:px-16 lg:px-32 2xl:px-72 xl:w-2/3">
+        <h3 class="text-5xl 2xl:text-6xl font-bold text-white text-center">What can I do?</h3>
+        <div class="flex flex-col-reverse md:flex-row w-full h-full md:h-auto">
+            <div
+                class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 items-center justify-center w-full md:w-1/5 pt-4 md:pt-0">
                 <div @click="selectRating(3)"
                     :class="['flex', 'flex-col', 'skillSelector', { active: selectedRating === 3 }]">
                     <span class="row-top">
@@ -23,8 +25,8 @@
                 <div @click="selectRating(0)" :class="['flex', 'skillSelector', { active: selectedRating === 0 }]"><i
                         class="far fa-star"></i></div>
             </div>
-            <div class="flex flex-col items-center w-full space-y-2">
-                <div class="w-4/5 items-center justify-center space-y-2">
+            <div class="flex flex-col items-center w-full space-y-2 h-full md:h-auto">
+                <div class="w-full md:w-4/5 items-center justify-center space-y-2">
                     <p class="w-full text-center">Tech Stack:</p>
                     <div class="flex flex-wrap overflow justify-center items-center">
                         <div v-for="skill in filteredSkills" :key="skill.name"
@@ -171,7 +173,7 @@ export default {
                     name: 'Docker',
                     rating: 1,
                     description: 'language',
-                        imageUrl: '/tools/docker.svg'
+                    imageUrl: '/tools/docker.svg'
                 },
                 {
                     name: 'Figma',

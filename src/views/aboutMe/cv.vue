@@ -3,13 +3,13 @@
         <h3 class="text-5xl 2xl:text-6xl font-bold text-white pb-8">Who am I?</h3>
         <div class="carousel-container">
             <div class="carousel" ref="carousel">
-                <div class="flex flex-row space-x-8">
+                <div class="flex flex-row space-x-2 md:space-x-8">
                     <div class="flex-1 sliderElement">
                         <div class="border rounded border-white p-6 h-full">
-                            <h2 class="text-2xl font-bold">Work Experience</h2>
+                            <h2 class="text-2xl font-bold pb-2">Work Experience</h2>
                             <h3 class="text-xl">Full Stack Developer @Medienstürmer</h3>
                             <p>October 2022-Present</p>
-                            <ul class="text-gray-200">
+                            <ul class="text-gray-200 bulletPoints">
                                 <li>
                                     Developed and maintained web applications using Vue.js and Node.js
                                 </li>
@@ -29,26 +29,20 @@
                     </div>
                     <div class="flex-1 sliderElement">
                         <div class="border rounded border-white p-6 h-full">
-                            <h2 class="text-2xl font-bold">Education</h2>
+                            <h2 class="text-2xl font-bold pb-2">Education</h2>
                             <h3 class="text-xl">Information Systems @TUM</h3>
                             <p>2022 - Present</p>
                             <h3 class="text-xl">Informatics @TUM</h3>
-                            <!--<p>2020 - 2022</p>
-                            <p class="text-gray-200">Dropped out due to health reasons, credits transferred to current
-                                degree</p>-->
+                            <p>2020 - 2022</p>
+                            <p class="text-gray-200">Credits transferred to current
+                                degree</p>
                             <h3 class="text-xl">Werner-von-Siemens Gymnasium</h3>
-                            <p>- 2019</p>
                             <p class="text-gray-200">Graduated with a final grade of 1.7</p>
                         </div>
                     </div>
                     <div class="flex-1 sliderElement">
                         <div class="border rounded border-white p-6 h-full">
-                            <h2 class="text-2xl font-bold">Technical and Social Skills</h2>
-                            <h3 class="text-xl">Full Stack Development</h3>
-                            <p>
-                                I have a strong understanding of both frontend and backend development, comfortable with
-                                a myriad of frameworks and tools.
-                            </p>
+                            <h2 class="text-2xl font-bold pb-2">Soft Skills</h2>
                             <h3 class="text-xl">Highly Organized</h3>
                             <p>
                                 Through implementing project plans, documenting code-bases and working in a highly
@@ -57,13 +51,37 @@
                             <h3 class="text-xl">Communication</h3>
                             <p>
                                 I am comfortable with public speaking and have experience with both client communication
-                                and leading large groups of people.
+                                and individually closing partnership deals. Besides this I am also fluent in English,
+                                German and Turkish.
                             </p>
                         </div>
                     </div>
                     <div class="flex-1 sliderElement">
                         <div class="border rounded border-white p-6 h-full">
-                            <h2 class="text-2xl font-bold">Hobbies and Interests</h2>
+                            <h2 class="text-2xl font-bold pb-2">Technologies</h2>
+                            <h3 class="text-xl">Full Stack Development</h3>
+                            <p>
+                                I mainly use Javascript, Vue.js and Tailwind CSS for developing sleek frontend
+                                applications. I've also developed full stack applications using Go, Node.js, Express and
+                                MongoDB.
+                            </p>
+                            <h3 class="text-xl pt-2">RPAs</h3>
+                            <p>
+                                I'm a certified developer for Make.com (form. Integromat) and have experience with
+                                Power Automate.
+                            </p>
+                            <h3 class="text-xl pt-2">CRMs and ERP systems</h3>
+                            <p>
+                                I'm experienced with Salesforce and Zoho, having built and automated solutions regarding
+                                data management and internal tooling.
+                            </p>
+                            <p class="hidden md:block">For more information regarding my tech stack and favorite tools
+                                click below.</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 sliderElement">
+                        <div class="border rounded border-white p-6 h-full">
+                            <h2 class="text-2xl font-bold pb-2">Hobbies and Interests</h2>
                             <ul class="text-gray-200 space-y-2">
                                 <li>
                                     I love to play the guitar and bass, could also be considered a half-decent producer.
@@ -138,7 +156,7 @@ export default {
                 this.scrollPosition = Math.max(0, this.scrollPosition - slideWidth);
             } else {
                 this.scrollPosition = Math.min(
-                    carousel.scrollWidth - carousel.offsetWidth,
+                    carousel.scrollWidth - carousel.offsetWidth + (carousel.offsetWidth * 0.4), // Add extra scroll space
                     this.scrollPosition + slideWidth
                 );
             }
@@ -206,20 +224,18 @@ export default {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: 0 10%;
-    /* Add padding to show partial elements on sides */
+    /* Remove padding from here */
 }
 
 .carousel {
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    /* Changed to mandatory for smoother scrolling */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    /* Adjust padding to allow full scrolling */
     padding: 0 40%;
-    /* Add padding to center the active slide */
 }
 
 .carousel::-webkit-scrollbar {
@@ -228,13 +244,27 @@ export default {
 
 .sliderElement {
     flex: 0 0 20%;
-    /* Changed to 20% width */
-    min-width: 400px;
-    /* Ensure a minimum width for smaller screens */
+    min-width: 450px;
     scroll-snap-align: center;
     transition: all 0.2s;
     padding: 0 10px;
     /* Add some spacing between elements */
+}
+
+@media (max-width: 640px) {
+    .sliderElement {
+        width: 85vw;
+        min-width: 250px;
+    }
+}
+
+.bulletPoints {
+    list-style-type: disc;
+    padding-left: 1.5em;
+}
+
+.bulletPoints li {
+    margin-bottom: 0.5em;
 }
 
 .carousel-button {
@@ -256,9 +286,6 @@ export default {
     right: 10px;
 }
 
-/* ... existing styles ... */
-
-/* Add these styles for the icons */
 .fab {
     transition: transform 0.2s ease-in-out;
 }
