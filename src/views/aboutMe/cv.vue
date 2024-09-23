@@ -75,8 +75,6 @@
                                 I'm experienced with Salesforce and Zoho, having built and automated solutions regarding
                                 data management and internal tooling.
                             </p>
-                            <p class="hidden md:block">For more information regarding my tech stack and favorite tools
-                                click below.</p>
                         </div>
                     </div>
                     <div class="flex-1 sliderElement">
