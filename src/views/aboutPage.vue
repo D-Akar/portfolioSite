@@ -1,4 +1,4 @@
-<template>
+<template class="darkestBlue">
     <header class="darkestBlue px-8 md:px-16 lg:px-32 2xl:px-72">
         <page-header class="hidden md:flex" />
         <mobileMenu class="block md:hidden" position="top-center" />

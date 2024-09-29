@@ -54,30 +54,8 @@
 
                     </div>
                 </div>
-                <!-- <div class="h-1/5 items-center justify-center">
-                    <div v-if="selectedItem" class="flex flex-col">
-                        <ul class="space-y-2 text-center">
-                            <li class="justify-center">{{ selectedItem.name }}</li>
-                            <li>Skill level: {{ selectedItem.rating }}/3</li>
-                            <li>{{ selectedItem.description }}</li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
         </div>
-
-
-        <!-- <p>I do a bunch of different tech stacks n stuff wooo!</p>
-        <div>
-            Skill list: Hosting infra and development pipelines, Front-end dev Back-end dev Design Creation of RPA
-            workflows between different applications Implemen
-        </div>
-        <div>Tool List</div>
-        <div>
-            Tools: Figma, docker, firebase, Screamingfrog TODO, Make.com, Asana, Jira, Git, hetzner, Postman, VSCode, Zoho Tech Stack: HTML,
-            CSS, Tailwind, JS, PHP, Java, SQL, GO, Express, Node
-        </div>
-        <div>Certifications: Make.com</div> -->
     </div>
 </template>
 
