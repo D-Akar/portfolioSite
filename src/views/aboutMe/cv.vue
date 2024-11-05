@@ -31,10 +31,10 @@
                         <div class="border rounded border-white p-6 h-full">
                             <h2 class="text-2xl font-bold pb-2">Education</h2>
                             <h3 class="text-xl">Information Systems @TUM</h3>
-                            <p>2022 - Present</p>
+                            <p>2023 - Present</p>
                             <h3 class="text-xl">Informatics @TUM</h3>
                             <p>2020 - 2022</p>
-                            <p class="text-gray-200">Credits transferred to current
+                            <p class="text-gray-200">Dropped due to personal reasons, credits transferred to current
                                 degree</p>
                             <h3 class="text-xl">Werner-von-Siemens Gymnasium</h3>
                             <p class="text-gray-200">Graduated with a final grade of 1.7</p>

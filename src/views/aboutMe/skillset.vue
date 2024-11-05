@@ -104,6 +104,12 @@ export default {
                     imageUrl: '/techstack/java.svg'
                 },
                 {
+                    name: 'MongoDB',
+                    rating: 2,
+                    description: 'language',
+                    imageUrl: '/techstack/mongodb.svg'
+                },
+                {
                     name: 'PostgreSQL',
                     rating: 1,
                     description: 'language',

@@ -5,22 +5,24 @@
     </header>
 
     <body>
-        <div class="w-screen darkestBlue flex flex-col contentContainer justify-center text-white">
+        <div
+            class="w-screen h-screen darkestBlue flex flex-col contentContainer portfolioContainer justify-center text-white transition-container">
 
             <divider-line />
-            <div class="w-screen darkestBlue flex flex-col flex-0 items-center justify-center" id="contentBlock">
+            <div class="w-screen darkestBlue flex flex-col flex-0 items-center py-8 overflow-y-scroll scrollbar-hide"
+                id="contentBlock">
                 <div v-for="project in projects" :key=project.name
-                    class="flex flex-col flex-1 justify-center w-1/2 mb-4" id="projectContainer">
+                    class="flex flex-col flex-1 justify-center w-4/5 lg:w-1/2 mb-4" id="projectContainer">
                     <div class="border rounded flex flex-row">
-                        <div class="flex flex-col p-8 space-y-4">
+                        <div class="flex flex-col p-6 lg:p-8 space-y-4">
                             <h2 class="text-2xl font-bold">{{ project.name }}</h2>
                             <p>{{ project.portfolioDescription }}</p>
                             <p v-if="project.moreInfo">
                                 <a :href="project.moreInfoURL" class="text-red-500 hover:text-white">{{ project.moreInfo
                                     }}</a>
                             </p>
-                            <div class="flex flex-row space-x-4">
-                                <p v-for="tag in project.tags" class="border rounded text-sm px-4">
+                            <div class="flex flex-wrap overflow">
+                                <p v-for="tag in project.tags" class="border rounded text-sm px-4 mr-4 mb-2 lg:mb-0">
                                     {{ tag }}
                                 </p>
                             </div>
@@ -99,4 +101,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* Hide scrollbar for Chrome, Safari and Edge */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+</style>

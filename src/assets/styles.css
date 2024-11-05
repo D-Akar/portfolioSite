@@ -163,6 +163,10 @@
 }
 }
 
+.portfolioContainer {
+    min-height: fit-content !important;
+}
+
 #contentBlock {
     opacity: 0;
     height: 20px !important;
