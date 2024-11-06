@@ -6,9 +6,33 @@
                 <div class="flex flex-row space-x-2 md:space-x-8">
                     <div class="flex-1 sliderElement">
                         <div class="border rounded border-white p-6 h-full">
+                            <h2 class="text-2xl font-bold pb-2">About Me</h2>
+                            <p class="pb-2">Hi there! I'm Derin, a 23 year old full-stack dev based out of Munich, Germany. Have a quick list of fun facts about me:</p>
+                            <ul class="text-gray-200 bulletPoints">
+                                <li>
+                                    I enjoy building things and tackling on new experiences. The more I can learn the better, with my latest forays being into the world of ML and AI!
+                                </li>
+                                <li>
+                                    I love to play the guitar and bass, could also be considered a half-decent producer.
+                                    If you want to start a band <a href="/contact"
+                                        class="text-red-500 hover:text-red-300">hit me up.</a>
+                                </li>
+                                <li>
+                                    Passionate reader with little space left on the bookshelf. Like to give book
+                                    <a href="https://www.penguinrandomhouse.com/books/553182/american-prison-by-shane-bauer/"
+                                        class="text-red-500 hover:text-red-300">recommendations.</a>
+                                </li>
+                                <li>
+                                    Enjoy keeping fit through bouldering, hikes and any sport you can think of.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex-1 sliderElement">
+                        <div class="border rounded border-white p-6 h-full">
                             <h2 class="text-2xl font-bold pb-2">Work Experience</h2>
                             <h3 class="text-xl">Full Stack Developer @Medienstürmer</h3>
-                            <p>October 2022-Present</p>
+                            <p class="pb-2">October 2022-Present</p>
                             <ul class="text-gray-200 bulletPoints">
                                 <li>
                                     Developed and maintained web applications using Vue.js and Node.js
@@ -43,12 +67,12 @@
                     <div class="flex-1 sliderElement">
                         <div class="border rounded border-white p-6 h-full">
                             <h2 class="text-2xl font-bold pb-2">Soft Skills</h2>
-                            <h3 class="text-xl">Highly Organized</h3>
-                            <p>
+                            <h3 class="text-xl pb-2">Highly Organized</h3>
+                            <p class="pb-2">
                                 Through implementing project plans, documenting code-bases and working in a highly
                                 regulated environment I have developed a strong sense of organization.
                             </p>
-                            <h3 class="text-xl">Communication</h3>
+                            <h3 class="text-xl pb-2">Communication</h3>
                             <p>
                                 I am comfortable with public speaking and have experience with both client communication
                                 and individually closing partnership deals. Besides this I am also fluent in English,
@@ -75,29 +99,6 @@
                                 I'm experienced with Salesforce and Zoho, having built and automated solutions regarding
                                 data management and internal tooling.
                             </p>
-                        </div>
-                    </div>
-                    <div class="flex-1 sliderElement">
-                        <div class="border rounded border-white p-6 h-full">
-                            <h2 class="text-2xl font-bold pb-2">Hobbies and Interests</h2>
-                            <ul class="text-gray-200 space-y-2">
-                                <li>
-                                    I love to play the guitar and bass, could also be considered a half-decent producer.
-                                    If you want to start a band <a href="/contact"
-                                        class="text-red-500 hover:text-red-300">hit me up.</a>
-                                </li>
-                                <li>
-                                    Passionate reader with little space left on the bookshelf. Like to give book
-                                    <a href="https://www.penguinrandomhouse.com/books/553182/american-prison-by-shane-bauer/"
-                                        class="text-red-500 hover:text-red-300">recommendations.</a>
-                                </li>
-                                <li>
-                                    Keeping fit through bouldering, hikes and any sport you can think of.
-                                </li>
-                                <li>
-                                    Currently invested in learning more about AI and machine learning.
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -149,12 +150,12 @@ export default {
     methods: {
         scroll(direction) {
             const carousel = this.$refs.carousel;
-            const slideWidth = carousel.offsetWidth * 0.2; // Width of one slide
+            const slideWidth = carousel.offsetWidth * 0.25; // Width of one slide
             if (direction === 'left') {
                 this.scrollPosition = Math.max(0, this.scrollPosition - slideWidth);
             } else {
                 this.scrollPosition = Math.min(
-                    carousel.scrollWidth - carousel.offsetWidth + (carousel.offsetWidth * 0.4), // Add extra scroll space
+                    carousel.scrollWidth - carousel.offsetWidth + (carousel.offsetWidth * 0.5), // Add extra scroll space
                     this.scrollPosition + slideWidth
                 );
             }
@@ -173,7 +174,7 @@ export default {
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
                 this.scroll(e.deltaY > 0 ? 'right' : 'left');
-            }, 30); // Adjust this value to control scroll sensitivity
+            }, 20); // Adjust this value to control scroll sensitivity
         });
 
         let isDown = false;
@@ -204,7 +205,7 @@ export default {
 
         // Add this new function to snap to the nearest slide
         const snapToNearestSlide = () => {
-            const slideWidth = carousel.offsetWidth * 0.2;
+            const slideWidth = carousel.offsetWidth * 0.25;
             const nearestSlide = Math.round(carousel.scrollLeft / slideWidth);
             carousel.scrollTo({
                 left: nearestSlide * slideWidth,
@@ -233,7 +234,7 @@ export default {
     scrollbar-width: none;
     -ms-overflow-style: none;
     /* Adjust padding to allow full scrolling */
-    padding: 0 40%;
+    padding: 0 42.5%;
 }
 
 .carousel::-webkit-scrollbar {
@@ -241,7 +242,7 @@ export default {
 }
 
 .sliderElement {
-    flex: 0 0 20%;
+    flex: 0 0 25%;
     min-width: 450px;
     scroll-snap-align: center;
     transition: all 0.2s;

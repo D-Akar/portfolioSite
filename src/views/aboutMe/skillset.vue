@@ -1,6 +1,6 @@
 <template>
     <div
-        class="h-full flex items-center flex-col py-16 space-y-4 md:space-y-16 justify-start md:justify-center px-6 md:px-16 lg:px-32 2xl:px-72 xl:w-2/3">
+        class="h-full flex items-center flex-col py-16 lg:py-8 2xl:py-16 space-y-4 md:space-y-16 lg:space-y-8 2xl:space-y-16 justify-start md:justify-center px-6 md:px-16 lg:px-32 2xl:px-72 xl:w-2/3">
         <h3 class="text-5xl 2xl:text-6xl font-bold text-white text-center">What can I do?</h3>
         <div class="flex flex-col-reverse md:flex-row w-full h-full md:h-auto">
             <div
