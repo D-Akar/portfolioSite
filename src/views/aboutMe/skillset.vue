@@ -123,7 +123,7 @@ export default {
                 },
                 {
                     name: 'Express',
-                    rating: 1,
+                    rating: 2,
                     description: 'language',
                     imageUrl: '/techstack/express.svg'
                 },
