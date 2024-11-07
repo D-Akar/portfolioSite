@@ -1,7 +1,11 @@
 <template>
-    <div class="flex-1 flex items-center flex-col my-8 justify-center">
-        <h3 class="text-5xl 2xl:text-6xl font-bold text-white pb-8">Who am I?</h3>
+    <div class="flex-1 flex items-center flex-col my-6 justify-center">
+        <h3 class="text-3xl xl:text-5xl 2xl:text-6xl font-bold text-white">Who am I?</h3>
+        <p class="pb-4 opacity-80 animate-pulse">Drag to slide</p>
         <div class="carousel-container">
+            <button @click="scroll('left')" class="carousel-button prev">
+                Previous
+            </button>
             <div class="carousel" ref="carousel">
                 <div class="flex flex-row space-x-2 md:space-x-8">
                     <div class="flex-1 sliderElement">
@@ -10,7 +14,7 @@
                             <p class="pb-2">Hi there! I'm Derin, a 23 year old full-stack dev based out of Munich, Germany. Have a quick list of fun facts about me:</p>
                             <ul class="text-gray-200 bulletPoints">
                                 <li>
-                                    I enjoy building things and tackling on new experiences. The more I can learn the better, with my latest forays being into the world of ML and AI!
+                                    I enjoy building things and tackling on new experiences. The more I learn the better, currently my sights are set on ML and AI!
                                 </li>
                                 <li>
                                     I love to play the guitar and bass, could also be considered a half-decent producer.
@@ -23,7 +27,7 @@
                                         class="text-red-500 hover:text-red-300">recommendations.</a>
                                 </li>
                                 <li>
-                                    Enjoy keeping fit through bouldering, hikes and any sport you can think of.
+                                    Enjoy bouldering, hikes & basically any other sport.
                                 </li>
                             </ul>
                         </div>
@@ -103,8 +107,11 @@
                     </div>
                 </div>
             </div>
+            <button @click="scroll('right')" class="carousel-button next">
+                Next
+            </button>
         </div>
-        <div class="flex flex-col justify-center pt-8 space-x-8">
+        <div class="flex flex-col justify-center pt-6 space-x-8">
             <p>For a simplified PDF version click <a href="" class="text-red-500 hover:text-red-300">here</a></p>
             <div>
                 <ul class="flex flex-row space-x-4 justify-center">
@@ -145,76 +152,96 @@ export default {
     data() {
         return {
             scrollPosition: 0,
+            currentSlide: 0,
+            totalSlides: 5,
+            isDragging: false,
+            startX: 0,
+            scrollLeft: 0
         };
     },
     methods: {
         scroll(direction) {
-            const carousel = this.$refs.carousel;
-            const slideWidth = carousel.offsetWidth * 0.25; // Width of one slide
-            if (direction === 'left') {
-                this.scrollPosition = Math.max(0, this.scrollPosition - slideWidth);
-            } else {
-                this.scrollPosition = Math.min(
-                    carousel.scrollWidth - carousel.offsetWidth + (carousel.offsetWidth * 0.5), // Add extra scroll space
-                    this.scrollPosition + slideWidth
-                );
+            if (direction === 'left' && this.currentSlide > 0) {
+                this.currentSlide--;
+            } else if (direction === 'right' && this.currentSlide < this.totalSlides - 1) {
+                this.currentSlide++;
             }
+
+            const carousel = this.$refs.carousel;
+            const slideWidth = carousel.querySelector('.sliderElement').offsetWidth;
+            
+            this.scrollPosition = this.currentSlide * slideWidth;
             carousel.scrollTo({
                 left: this.scrollPosition,
-                behavior: 'smooth',
+                behavior: 'smooth'
             });
         },
+        
+        handleWheel(e) {
+            e.preventDefault();
+            const carousel = this.$refs.carousel;
+            const slideWidth = carousel.querySelector('.sliderElement').offsetWidth;
+            
+            // Calculate the maximum scroll position
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+            
+            // Calculate new scroll position
+            const newScrollLeft = carousel.scrollLeft + e.deltaY;
+            
+            // Ensure scroll position stays within bounds and apply smooth scrolling
+            carousel.scrollTo({
+                left: Math.max(0, Math.min(newScrollLeft, maxScroll)),
+                behavior: 'smooth'
+            });
+        },
+
+        startDragging(e) {
+            this.isDragging = true;
+            this.startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+            this.scrollLeft = this.$refs.carousel.scrollLeft;
+        },
+
+        stopDragging() {
+            this.isDragging = false;
+        },
+
+        move(e) {
+            if (!this.isDragging) return;
+            e.preventDefault();
+            const x = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+            const walk = (x - this.startX) * 2;
+            this.$refs.carousel.scrollLeft = this.scrollLeft - walk;
+        }
     },
     mounted() {
         const carousel = this.$refs.carousel;
-        let scrollTimeout;
-
-        carousel.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                this.scroll(e.deltaY > 0 ? 'right' : 'left');
-            }, 20); // Adjust this value to control scroll sensitivity
-        });
-
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        carousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 0.5; // Reduced drag sensitivity
-            carousel.scrollLeft = scrollLeft - walk;
-        });
-
-        // Add this new function to snap to the nearest slide
-        const snapToNearestSlide = () => {
-            const slideWidth = carousel.offsetWidth * 0.25;
-            const nearestSlide = Math.round(carousel.scrollLeft / slideWidth);
-            carousel.scrollTo({
-                left: nearestSlide * slideWidth,
-                behavior: 'smooth',
-            });
-        };
-
-        carousel.addEventListener('scrollend', snapToNearestSlide);
+        
+        // Add wheel event listener for vertical scrolling
+        carousel.addEventListener('wheel', this.handleWheel, { passive: false });
+        
+        // Add touch/mouse events for drag scrolling
+        carousel.addEventListener('mousedown', this.startDragging);
+        carousel.addEventListener('touchstart', this.startDragging);
+        
+        window.addEventListener('mousemove', this.move);
+        window.addEventListener('touchmove', this.move);
+        
+        window.addEventListener('mouseup', this.stopDragging);
+        window.addEventListener('touchend', this.stopDragging);
     },
+    beforeDestroy() {
+        // Clean up event listeners
+        const carousel = this.$refs.carousel;
+        carousel.removeEventListener('wheel', this.handleWheel);
+        carousel.removeEventListener('mousedown', this.startDragging);
+        carousel.removeEventListener('touchstart', this.startDragging);
+        
+        window.removeEventListener('mousemove', this.move);
+        window.removeEventListener('touchmove', this.move);
+        
+        window.removeEventListener('mouseup', this.stopDragging);
+        window.removeEventListener('touchend', this.stopDragging);
+    }
 };
 </script>
 
@@ -235,6 +262,13 @@ export default {
     -ms-overflow-style: none;
     /* Adjust padding to allow full scrolling */
     padding: 0 42.5%;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.carousel:active {
+    cursor: grabbing;
 }
 
 .carousel::-webkit-scrollbar {
@@ -252,7 +286,7 @@ export default {
 
 @media (max-width: 640px) {
     .sliderElement {
-        width: 85vw;
+        flex: 0 0 30%;
         min-width: 250px;
     }
 }
@@ -263,7 +297,7 @@ export default {
 }
 
 .bulletPoints li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
 }
 
 .carousel-button {
@@ -273,16 +307,22 @@ export default {
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
 }
 
 .prev {
-    left: 10px;
+    left: 20px;
 }
 
 .next {
-    right: 10px;
+    right: 20px;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .fab {
