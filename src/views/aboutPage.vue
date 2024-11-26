@@ -10,7 +10,7 @@
             <divider-line />
             <div class="w-screen darkestBlue flex flex-col flex-0" id="contentBlock">
                 <transition name="fade-slide" mode="out-in" appear>
-                    <div :key="selectedInfo" class="flex flex-col flex-1 justify-center">
+                    <div :key="selectedInfo" class="flex flex-col flex-1 justify-center h-full">
                         <div v-if="selectedInfo == 0" data-index="0"
                             class="slide justify-center items-center flex h-full">
                             <skill-set-info />
@@ -23,7 +23,8 @@
                 </transition>
             </div>
             <divider-line direction="right" />
-            <div id="footerSelection" class="flex text-white px-8 md:px-16 lg:px-32 2xl:px-72 py-12 md:py-12 2xl:py-16 max-h-4">
+            <div id="footerSelection"
+                class="flex text-white px-8 md:px-16 lg:px-32 2xl:px-72 py-12 md:py-12 2xl:py-16 max-h-4">
                 <div class="w-1/6 border-r-1 items-center justify-center text-center flex flex-1">
                     <button @click="updateSelection('decrement')" class="hover-move-left">
                         <i class="fas fa-chevron-left fa-lg"></i>

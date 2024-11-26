@@ -54,6 +54,14 @@ export default {
                     tags: ["React", "TailwindCSS", "Express.js", "MongoDB"]
                 },
                 {
+                    name: "Munich Matcher",
+                    portfolioImage: "https://qodeinteractive.com/magazine/wp-content/uploads/2022/05/How-to-View-a-Mobile-Version-of-Your-Website-on-Desktop.jpg",
+                    portfolioDescription: "Built for HackaTUM 24, an interactive platform where users can volunteer at different organisations in exchange for small incentives.",
+                    moreInfo: "Check out the Repo.",
+                    moreInfoURL: "https://github.com/D-Akar/MunichMatchr",
+                    tags: ["Vue", "TailwindCSS", "Java", "Spring Boot", "MongoDB"]
+                },
+                {
                     name: "Hello Chef",
                     portfolioImage: "",
                     portfolioDescription: "Built for HackaTUM 23, a smart recipe recommendation App that gives users a list of options based off of their preferences and dietary requirements.",
