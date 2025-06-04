@@ -81,7 +81,7 @@ export default {
                     name: "Freelance Projects",
                     portfolioImage: "",
                     portfolioDescription: "Pages built with Vue, using CSS animations to bring life to it and custom-built social media components. Most recent example is the personal website of an author.",
-                    moreInfo: "Want to see it?",
+                    moreInfo: "Check one out!",
                     moreInfoURL: "https://emiliayoung.com/",
                     tags: ["Vue", "Javascript", "TailwindCSS", "CSS"]
                 }

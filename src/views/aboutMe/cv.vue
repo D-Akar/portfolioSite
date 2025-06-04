@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center flex-col my-6  space-y-8 justify-start px-8 md:px-16 lg:px-32 2xl:px-72">
+    <div class="flex items-center flex-col my-6 space-y-4 md:space-y-8 justify-start px-8 md:px-16 lg:px-32 2xl:px-72">
         <h3 class="text-3xl xl:text-5xl 2xl:text-6xl font-bold text-white pb-8">Who am I?</h3>
         <Flicking :options="{ circular: true }" :plugins="plugins" class="">
             <div class="card-panel border rounded border-white p-6 h-full">
@@ -106,7 +106,7 @@
 
             </div>
         </Flicking>
-        <div class="flex flex-col justify-center pt-6 space-x-8 space-y-2">
+        <div class="flex flex-col justify-center md:pt-6 space-x-8 space-y-2">
             <p>For a simplified PDF version click <a href="" class="text-red-500 hover:text-red-300">here</a></p>
             <div>
                 <ul class="flex flex-row space-x-4 justify-center">
@@ -167,6 +167,13 @@ export default {
 .card-panel {
     height: 400px;
     width: 750px;
+}
+
+@media (max-width: 500px) {
+    .card-panel {
+        width: 370px;
+        height: 500px;
+    }
 }
 
 .bulletPoints {
